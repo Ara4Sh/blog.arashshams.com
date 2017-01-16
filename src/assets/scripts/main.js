@@ -1,9 +1,9 @@
 /* jshint devel:true */
 'use strict';
 // require('./module/rAF');
-var fastclick = require('fastclick');
+// var fastclick = require('fastclick');
 // var _ = require('./helpers/helpers');
-var Layzr = require('layzr.js');
+// var Layzr = require('layzr.js');
 
 var _init = false
 
@@ -25,9 +25,9 @@ var setTheme = function() {
   }
 }
 
-var bindLazyLoad = function(option) {
-  var layzr = new Layzr(option);
-}
+// var bindLazyLoad = function(option) {
+//   var layzr = new Layzr(option);
+// }
 
 var app = {
 
@@ -36,14 +36,15 @@ var app = {
     _init = true
 
     setTheme()
-    bindLazyLoad({
-      callback: function() {
-        this.parentElement.classList.add('loaded');
-      }
-    })
+      // var layzr = new Layzr({
+      //   callback: function() {
+      //     debugger;
+      //     this.parentElement.classList.add('loaded');
+      //   }
+      // })
 
     // Attach fastclick
-    fastclick.attach(document.body);
+    // fastclick.attach(document.body);
 
     console.log('App Initialize successfully.')
   }

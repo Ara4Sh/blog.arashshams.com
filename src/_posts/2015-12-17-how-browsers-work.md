@@ -91,7 +91,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 متن پیش رو بر اساس مرورگرهای اوپن سورس فایرفاکس، کروم و سافاری(که فقط بخشی‌هایی از آن اوپن سورس است) تنظیم شده است. در حال حاضر این مرورگرها به شهادت آمار سایت [StatCounter](http://gs.statcounter.com/) در ۳ ماهه‌ی پاییز ۱۳۹۴ در ایران، به طور میانگین بیش از ۷۵ درصد سهام بازار مرورگرها را در تمامی دستگاه‌های رومیزی و همراه در اختیار دارند.
 
 {% figure caption:"نمودار درصد سهم مرورگرها از بازار ایران در پاییز ۱۳۹۴" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/StatCounter-browser-IR-quarterly-q4-2015-bar.jpg" alt="StatCounter-browser-IR-quarterly-q4-2015-barStatCounter-browser-IR-quarterly-q4-2015-bar">
+<img src="/assets/images/content/2015/12/StatCounter-browser-IR-quarterly-q4-2015-bar.jpg" alt="StatCounter-browser-IR-quarterly-q4-2015-barStatCounter-browser-IR-quarterly-q4-2015-bar">
 {% endfigure %}
 
 {:#the-browser-high-level-structure}
@@ -108,7 +108,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 7. **انباره داده‌ها (Data Storage)**: این لایه وظیفه‌ی نگهداری از تمامی انواع داده‌های مرورگر از قبیل، کوکی‌ها، session-ها و غیره را بر عهده دارد. و نیز عهده دار مدیریت مکانیزم‌های دیگر نگهداری و پالایش داده‌ها نظیر LocalStorage، IndexedDB، WebSQL و FileSystem نیز هست.
 
 {% figure caption:"اجزای اصلی مرورگرها" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/browser-components.png" alt="اجزای اصلی مرورگرها">
+<img src="/assets/images/content/2015/12/browser-components.png" alt="اجزای اصلی مرورگرها">
 {% endfigure %}
 
 این نکته‌ی مهم را در نظر داشته باشید که مرورگرهای مانند کروم، نمونه‌های (Instance) متعددی از موتور رندر خود را هم زمان اجرا می‌کنند. یعنی برای هر تب، یک موتور رندر؛ که هر تب فرآیند(Process) جداگانه‌ی خود را دارد. (می‌توانید با فشار دادن همزمان کلیدهای ترکیبی shift+Esc در مرورگر کروم خود به راحتی فرآیند‌های در حال اجرا توسط آن را مشاهده کنید.)
@@ -142,7 +142,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 پس از رسیدن داده‌ها، موتور رندر چهار مرحله‌ای را که در تصویر زیر مشاهده می‌کنید را به ترتیب برای هر درخواست در هر بار باید طی کند تا سند درخواستی کاربر برایش در پنچره مرورگر قابل مشاهده و استفاده شود.
 
 {% figure caption:"چرخه اصلی فرآیند رندر یک صفحه‌ی HTML توسط موتور رندر مرورگرها" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/rendering-engine-basic-flow.png" alt="جریان اصلی عملیات انجام شده توسط موتور رندر مرورگر">
+<img src="/assets/images/content/2015/12/rendering-engine-basic-flow.png" alt="جریان اصلی عملیات انجام شده توسط موتور رندر مرورگر">
 {% endfigure %}
 
 موتور رندر کننده با تجزیه و تبدیل سند HTML‌ به گره‌های (node) درختی به نام «درخت محتوا» کار خود را آغاز می‌کند. موتور هم چنین داده‌های مربوط به برگه‌های استایل (stylesheet) این گره‌ها را نیز تجزیه می‌کند که شامل تمامی انواع استایل‌ها، از خارجی (external) گرفته تا درونی (inline) می‌شود. این اطلاعات بدست آماده از تجزیه داده‌های استایل‌ها به همراه دستورات گرافیکی آمده در سند HTML توسط موتور رندر برای ساخت یک درخت دیگر، به نام «درخت رندر» استفاده می‌شود.
@@ -159,11 +159,11 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 ###مثال‌های شماتیکی از فرآیند اصلی رندر
 
 {% figure caption:"فرآیند اصلی رندر در موتور WebKit" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/WebKit-engine-main-flow.png" alt="فرآیند اصلی رندر در موتور WebKit">
+<img src="/assets/images/content/2015/12/WebKit-engine-main-flow.png" alt="فرآیند اصلی رندر در موتور WebKit">
 {% endfigure %}
 
 {% figure caption:"فرآیند اصلی رندر در موتور Gecko موزیلا" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/firefox-Gecko-rendering-engine-main-flow.png" alt="فرآیند اصلی رندر در موتور Gecko موزیلا">
+<img src="/assets/images/content/2015/12/firefox-Gecko-rendering-engine-main-flow.png" alt="فرآیند اصلی رندر در موتور Gecko موزیلا">
 {% endfigure %}
 
 همان طور که در دو تصویر فوق می‌بینید، دو موتور وب‌کیت و گِکو تفاوت مختصری از نظر لغوی و صرفا نام‌گذاری مراحل دارند و عملا فرآیند اصلی در هر دو یکسان است.
@@ -182,7 +182,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 برای مثال، تجزیه‌ی عبارت ۱ - ۳ + ۲  به صورت درخت زیر می‌تواند در بیاید:
 
 {% figure caption:"گره‌های درخت تجزیه شده‌ی یک عبارت ریاضی" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/basic-parsing-mathematical-expression-tree-node.png" alt="اگره‌های درخت تجزیه شده‌ی یک عبارت ریاضی">
+<img src="/assets/images/content/2015/12/basic-parsing-mathematical-expression-tree-node.png" alt="اگره‌های درخت تجزیه شده‌ی یک عبارت ریاضی">
 {% endfigure %}
 
 {:#grammer}
@@ -198,7 +198,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 مسولیت عملیات تجزیه بر عهده‌ی ۲ بخش مجزا است. اولی **lexer** (به خوانید لِگزر) (که گاهی نیز به آن «tokenizer» می‌گویند) مسول شکستن داده‌های ورودی به توکن‌های معتبر است و دومی، پارسر/تجزیه‌گر **parser** نام دارد که مسؤل ساخت درخت تجزیه بر پایه‌ی قواعد نحویی زبانی است که داده‌های ورودی با آن تنظیم شده‌اند. هوشمندی لِگزرها در حدی است که کارکترهای زايد مانند فاصله‌ها و خط شکن‌ها را تشخیص دهند.
 
 {% figure caption:"مراحل تبدیل یه سند ورودی به درخت تجزیه شده" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/from-source-document-to-parse-trees.png" alt="مراحل تبدیل یه سند ورودی به درخت تجزیه شده">
+<img src="/assets/images/content/2015/12/from-source-document-to-parse-trees.png" alt="مراحل تبدیل یه سند ورودی به درخت تجزیه شده">
 {% endfigure %}
 
 تجزیه کردن، یک فرآیند چرخشی و تکرار شونده است. تجزیه‌گر معمولا به لِگزر برای یک توکن جدید درخواست می‌دهد و سپس به دنبال یک قاعده‌ی نحوی مطابق با آن تُکِن می‌گردد. اگر با قاعده‌ای مطابق بود، که گره‌ای را بر روی درخت تجزیه به آن اختصاص می‌دهد؛ و دوباره یک تُکن جدید درخواست می‌کند.
@@ -211,7 +211,7 @@ tags: [learning, reference, frontend, browsers, html, css, webkit, firefox, chro
 در بسیاری از موارد، درخت تجزیه شده، محصول نهایی نیست. ورودی تجزیه شده اغلب به مصرف یک مترجم می‌رسد که آن را به فرمت دیگری تبدیل می‌کند. کامپایلر برای تبدیل کد منبع ورودی به کد ماشین نهایی، در ابتدا ورودی را به درخت تجزیه شده تبدیل می‌کند و سپس آن را به کد ماشین ترجمه می‌کند.
 
 {% figure caption:"چرخه‌ی تالیف کد ماشین" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/from-source-document-to-parse-trees.png" alt="چرخه‌ی تالیف کد ماشین">
+<img src="/assets/images/content/2015/12/from-source-document-to-parse-trees.png" alt="چرخه‌ی تالیف کد ماشین">
 {% endfigure %}
 
 {:.notice-quote}
@@ -320,7 +320,7 @@ term := INTEGER | expression
 قطعه کد وقتی به درخت DOM‌ تبدیل شود، به شکل زیر در می‌آید:
 
 {% figure caption:"درخت DOM تشکیل شده از قطعه کد بالا" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/dom-tree-of-html-markup.png" alt="درخت DOM تشکیل شده از مارک‌آپ مثال قبلی">
+<img src="/assets/images/content/2015/12/dom-tree-of-html-markup.png" alt="درخت DOM تشکیل شده از مارک‌آپ مثال قبلی">
 {% endfigure %}
 
 {:#the-parsing-algorithm}
@@ -337,7 +337,7 @@ term := INTEGER | expression
 این الگوریتم از دو بخش تشکیل شده است: علامت گذاری «tokenization» و ساخت درخت «tree construction».
 
 {% figure caption:"نمودار چرخه‌ی تجزیه‌ی HTML" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/html-parsing-flowchart.png" alt="نمودار چرخه‌ی تجزیه‌ی HTML">
+<img src="/assets/images/content/2015/12/html-parsing-flowchart.png" alt="نمودار چرخه‌ی تجزیه‌ی HTML">
 {% endfigure %}
 
 علامت گذاری همان بررسی لِگزیکال‌ها است؛ تجزیه ورودی‌ها به تُکن‌ها. از جمله‌ی تُکن‌های HTML می‌توان به تگ‌های شروع و پایان، خصوصیت‌ها «attributes» و مقادیر این خصوصیت‌ها اشاره کرد.
@@ -345,7 +345,7 @@ term := INTEGER | expression
 علامت‌گذار، تُکنی را شناسایی می‌کند و بعد آن را به سازنده‌ی درخت می‌دهد. این چرخه تا جای تکرار می‌شود که تمامی ورودی‌ها علامت‌گذاری و در درخت جانمایی شده باشند. نمودار جریان زیر نشان دهنده‌ی همین چرخه‌ است.
 
 {% figure caption:"چرخه‌ی تجزیه‌ی HTML" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/html-parsing-flow.png" alt="چرخه‌ی تجزیه‌ی HTML">
+<img src="/assets/images/content/2015/12/html-parsing-flow.png" alt="چرخه‌ی تجزیه‌ی HTML">
 {% endfigure %}
 
 {:.notice-quote}
@@ -391,7 +391,7 @@ term := INTEGER | expression
 دیدیم که وب‌کیت از دو ایجاد کننده‌ی خودکار تجزیه‌گر به نام‌های فلیگس و بایسون استفاده می‌کند؛ که برای برای ساختن خودکار تجزیه‌گر CSS، تنها کافی است که فایل‌های گرامر زبان CSS را به آنها بخوراند. اگر به یاد داشته باشید، گفتیم که بایسون یک پارسر پایین به بالایِ شیفتیِ-کاهنده می‌سازد؛ اما در مقابل فایرفاکس از یک پارسر بالا به پایین که خودش درست کرده است استفاده می‌کند. در هر دو مورد، فایل CSS به یک شی StyleSheet تجزیه و تبدیل می‌شود. هر کدام از اشیا در بر گیرنده‌ی قواعد CSS هستند. این اشیایِ قواعد CSS علاوه‌ بر اینکه شامل اشیایِ انتخابگرها «selector» و خصوصیاتشان «declaration» هستند، شامل دیگر اشیای مرتبطشان در گرامر CSS نیز می‌شوند. شکل زیر به طور کامل گویای این است که ما به چه چیزی یک شی StyleSheet‌ می‌گوییم و آن دربردارنده‌ی چه اشیایی است.
 
 {% figure caption:"درخت حاصل از تجزیه‌ی CSS" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/parsing-css-style-tree.png" alt="درخت حاصل از تجزیه‌ی CSS">
+<img src="/assets/images/content/2015/12/parsing-css-style-tree.png" alt="درخت حاصل از تجزیه‌ی CSS">
 {% endfigure %}
 
 {:#the-order-of-processing-scripts-and-style-sheets}
@@ -488,7 +488,7 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
 بعضی از اشیای رندر «فریم» هم هستند که به یک گره از DOM مرتبط شده‌اند؛ ولی نه به همان ترتیبی که در درخت رندر قرار گرفته‌اند. عناصر `float` و  `absolute`-ی که خارج از جریان کلی صفحه موقعیت دهی شده باشند؛ در جای دیگری، از آنجایی که در درخت رندر برایشان تعریف شده است، جانمایی می‌شوند.
 
 {% figure caption:"درخت رند و درخت DOM متناظر با آن. `Viewport` یک بلاک در برگیرنده‌ای اولیه است که به صورت پیش فرض فراخوانی می‌شود. در وب‌کیت به عنوان یک شی `RenderView` شناخته می‌شود." %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/the-render-tree-and-the-corresponding-dom-tree.png" alt="the-render-tree-and-the-corresponding-dom-tree">
+<img src="/assets/images/content/2015/12/the-render-tree-and-the-corresponding-dom-tree.png" alt="the-render-tree-and-the-corresponding-dom-tree">
 {% endfigure %}
 
 {:#the-flow-of-constructing-the-tree}
@@ -534,7 +534,7 @@ div div div div {
 سند HTML از یک مدلی شبیه حرکت جریان رود «flow» برای صفحه بندی استفاده می‌کند. بدان معنی که بیشتر اوقات ممکن است که محاسبات هندسی تنها در یک جهت صورت بگیرد (اشاره به جریان آب رودخانه دارد که تنها به یک سو و جهت شناور است). عناصری که بعداً به جریان صفحه اضافه ‌می‌شوند، عناصری که از قبل در جریان بوده‌اند را از لحاظ مقادیر هندسی‌شان، تحت تاثیر قرار نمی‌دهند. به همین دلیل از آنجایی که جهت متون در HTML به خاطر زبان انگلیسی به طور پیش فرض چپ به راست در نظر گرفته شده است، این جریان صفحه بندی عناصر صفحه نیز تحت تاثیر آن به طور پیش فرض به صورت «چپ به راست» و از «بالا به پایین» است.
 
 {% figure caption:"مثالی از نحوه‌ی محاسبه مختصات یک پاراگراف و صفحه بندی آن" %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/layout-rect-calculate-the-position-size.jpg" alt="layout-rect-calculate-the-position-size">
+<img src="/assets/images/content/2015/12/layout-rect-calculate-the-position-size.jpg" alt="layout-rect-calculate-the-position-size">
 {% endfigure %}
 
 سیستم مختصات دهی عناصر صفحه، وابسته به فریم ریشه است؛ که به طور پیش فرض مبدا آن در گوشه‌ی بالایی سمت چپ صفحه مرورگر است در زبان‌های چپ به راست. این نقطه با مختصات 0,0 مشخص می‌شود.
@@ -560,7 +560,7 @@ div div div div {
 نوع دیگر از صفحه بندی، صفحه بندی به صورت **تدریجی** «incremental»است؛ که وقتی که تغییرات رخ داده در حد یک ناحیه‌ی محلی باشد، که باعث تنها آلوده شدن یک فریم خاص از درخت رندر شده باشد بر روی درخت رندر اِعمال می‌شود. این نوع صفحه بندی به صورت موازی «asynchronously» بر فریم‌ها اعمال می‌شود. برای مثال وقتی که یک فریم جدید به درخت رندر اضافه می‌شود، فرآیند صفحه بندی صبر می‌کند تا اگر محتوای دیگری هم از لایه شبکه قرار است برسد به طور کامل بارگذاری و به درخت DOM‌ اضافه شود و بعد از آن فریم‌ جدید را صفحه بندی کند.
 
 {% figure caption:"صفحه بندی تدریجی - تنها فریم‌های کثیف و فرزندانشان صفحه بندی می‌شوند." %}
-<img src="/assets/images/placeholder.png" data-layzr="/assets/images/content/2015/12/Incremental-layout.png" alt="Incremental-layout">
+<img src="/assets/images/content/2015/12/Incremental-layout.png" alt="Incremental-layout">
 {% endfigure %}
 
 {:#asynchronous-and-synchronous-layout}

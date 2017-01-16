@@ -35,41 +35,39 @@ gulp.task('webpack', function() {
 
 gulp.task('styles', function () {
   return gulp.src( path.src + 'styles/main.scss')
-    //.pipe($.sourcemaps.init())
-    .pipe($.sass({
-      outputStyle: 'expended',
+    .pipe($.sourcemaps.init())
+    .pipe($.sass.sync({
+      outputStyle: 'expanded',
       precision: 10,
-      includePaths: ['.'],
-      onError: console.error.bind(console, 'Sass error:')
-    }))
+      includePaths: ['.']
+    }).on('error', $.sass.logError))
     .pipe($.postcss([
       require('postcss-will-change'),
-      require('autoprefixer-core')(browserList),
+      require('autoprefixer')({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}),
       require("css-mqpacker")({
         sort: true
       })
     ]))
-    //.pipe($.sourcemaps.write())
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest( path.tmp + 'styles/'))
     .pipe(reload({stream: true}));
 });
 
 gulp.task('critical', function () {
   return gulp.src( path.src + 'styles/critical-*.scss')
-    .pipe($.sass({
-      outputStyle: 'compressed',
+    .pipe($.sass.sync({
+      outputStyle: 'expanded',
       precision: 10,
-      includePaths: ['.'],
-      onError: console.error.bind(console, 'Sass error:')
-    }))
+      includePaths: ['.']
+    }).on('error', $.sass.logError))
     .pipe($.postcss([
       require('postcss-will-change'),
-      require('autoprefixer-core')(browserList),
+      require('autoprefixer')({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}),
       require("css-mqpacker")({
         sort: true
       })
     ]))
-    .pipe(gulp.dest(  'src/_includes/assets/'))
+    .pipe(gulp.dest('src/_includes/assets/'))
 });
 
 gulp.task( 'js-uglify', function() {
@@ -83,43 +81,42 @@ gulp.task( 'js-uglify', function() {
 
 gulp.task('jekyll', function () {
   return gulp.src('_config.yml')
-    .pipe($.if(argv.dev, $.shell([ 'jekyll build --drafts --config <%= file.path %>' ])))
-    .pipe($.if(argv.prod, $.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %>' ])))
+    // .pipe($.if(argv.development, $.shell([ 'jekyll build --drafts --config <%= file.path %>' ])))
+    // .pipe($.if(argv.production, $.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ])))
+    .pipe($.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ]))
     .pipe(reload({stream: true}));
 });
 
 gulp.task('html', ['webpack', 'styles', 'jekyll'], function () {
-  var assets = $.useref.assets({searchPath: ['.tmp', 'src', '.']});
-
   return gulp.src('public/**/*.html')
-    .pipe(assets)
+    .pipe($.useref({searchPath: ['.tmp', 'src', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
-    .pipe(assets.restore())
-    .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('public'));
 });
 
 gulp.task('images', function() {
   return gulp.src( path.src + 'images/**/*')
-    .pipe($.cache($.imagemin({
+    .pipe($.imagemin({
       progressive: true,
       interlaced: true,
       // don't remove IDs from SVGs, they are often used
       // as hooks for embedding and styling
       svgoPlugins: [{ cleanupIDs: false }]
-    })))
-    .pipe(gulp.dest(path.tmp + 'images'))
-    .pipe($.if(argv.prod, gulp.dest(path.dist + 'images')));
+    }))
+    // .pipe(gulp.dest(path.tmp + 'images'))
+    // .pipe($.if(argv.prod, gulp.dest(path.dist + 'images')));
+    .pipe(gulp.dest(path.dist + 'images'));
 });
 
 gulp.task('fonts', function() {
   return gulp.src(require('main-bower-files')({
       filter: '**/*.{woff,woff2}'
     }).concat( path.src + 'fonts/**/*.css'))
-    .pipe(gulp.dest(path.tmp + 'fonts'))
-    .pipe($.if(argv.prod, gulp.dest(path.dist + 'fonts')));
+    // .pipe(gulp.dest(path.tmp + 'fonts'))
+    // .pipe($.if(argv.prod, gulp.dest(path.dist + 'fonts')));
+    .pipe(gulp.dest(path.dist + 'fonts'));
 });
 
 gulp.task('extras', function () {
@@ -179,7 +176,7 @@ gulp.task('wiredep', function () {
 });
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'critical',
+  runSequence('clean',
     ['html', 'images', 'fonts', 'extras'],
     'js-uglify',
     function() {

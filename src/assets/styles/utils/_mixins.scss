@@ -104,11 +104,17 @@
   }
 }
 
+@mixin optional-at-root-nest($sel) {
+    @at-root #{if(not &, $sel, selector-nest($sel, &))} {
+        @content;
+    }
+}
+
 /// Themify
 /// @param {String} - Theme name
 @mixin themify($theme) {
   // Create a selector (e.g. `.theme-unicorn .media`)
-  .#{$theme} & {
+  @include optional-at-root-nest('.#{$theme}') {
     // Output user content
     @content;
   }

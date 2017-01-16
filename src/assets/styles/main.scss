@@ -3,13 +3,13 @@
 @import "vendor/normalize";
 
 // // bower:scss
-@import "bower_components/sass-mq/_mq.scss";
+@import "../../../bower_components/sass-mq/_mq.scss";
 // endbower
 
 @import "utils/variables";
 @import "utils/mixins";
 
-@if $build == "dev" {
+// @if ($build == "dev") {
 
   @import "base/base";
   @import "utils/tools";
@@ -46,23 +46,23 @@
 
   @import "vendor/debug";
 
-} @else {
+// } @else {
 
-  @import "utils/tools";
+//   @import "utils/tools";
 
-  @import "layout/footer";
+//   @import "layout/footer";
 
-  @import "components/figure";
-  @import "components/pagination";
-  // @import "components/images";
-  @import "components/list";
-  @import "components/code";
-  @import "components/blockquote";
-  @import "components/table";
-  @import "components/light-switch";
-  @import "components/share-links";
-  @import "components/post-nav-links";
-  @import "components/video";
+//   @import "components/figure";
+//   @import "components/pagination";
+//   // @import "components/images";
+//   @import "components/list";
+//   @import "components/code";
+//   @import "components/blockquote";
+//   @import "components/table";
+//   @import "components/light-switch";
+//   @import "components/share-links";
+//   @import "components/post-nav-links";
+//   @import "components/video";
 
-  @import "base/shame";
-}
+//   @import "base/shame";
+// }

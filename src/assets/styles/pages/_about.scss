@@ -3,9 +3,9 @@
 //   @extend .post-header;
 // }
 
-.about-me__prologue > p {
-  @extend .large-text--dark;
-}
+// .about-me__prologue > p {
+//   @extend .large-text--dark;
+// }
 
 .interisting-list > dt {
   @include font-size(16px);

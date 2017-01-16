@@ -16,21 +16,21 @@ figure figcaption {
 }
 
 figure.lazy {
-  position: relative;
+  // position: relative;
   max-width: 400px;
   max-height: 300px;
   margin-right: auto;
   margin-left: auto;
 
-  &:before {
-    content: '';
-    background: url('../images/spin.gif') center center no-repeat;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
+  // &:before {
+  //   content: '';
+  //   background: url('../images/spin.gif') center center no-repeat;
+  //   position: absolute;
+  //   top: 0; left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: 1;
+  // }
 }
 
 .lazy.loaded {
