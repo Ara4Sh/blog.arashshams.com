@@ -1,20 +1,21 @@
 
 # Site settings
-title: "naser.xyz | Seyed Naser Hasani"
-url: "https://naser.xyz"
-logo: "/assets/images/fav/android-touch-icon.png"
+title: "Arash Shams | Personal blog"
+url: "https://blog.arashshams.com"
+logo: ""
 
-author: Seyed Naser Hasani
-fullname: "سید ناصر حسنی"
-email: snhasani@gmail.com
-author_twitter: snhasani
-author_avatar: '/assets/images/snh_winter-avatar_grayscale.jpg'
+author: Arash Shams
+fullname: "آرش شمس"
+email: me@arashshams.com
+author_twitter: ara4sh
+author_avatar: ''
 
-keywords: "کامپیوتر، بوتسترپ, بوتستراپ, فریمورک، لینوکس, برنامه‌نویسی، جاوااسکریپت، علم, اینترنت, آموزش, طاحی, css, html, scss, sass, javascript, nodejs, frontend, front-end, application, mobile, native, vanilla, cordova, bootstrap, phongap, android, npm, git, app, ios, linux, opensource, framework, dev-tools"
+keywords: "cloud,virtualization,kvm,docker,qemu,xen,lxc,opennebula,cloudstack,archlinux,mysql,redis,mongodb,linux,glusterfs,apache,nginx,haproxy,loadbalancer,highavailability,سیس ادمین, لینوکس"
 description: >
   سایت شخصی سید ناصر حسنی - نوشته های درباره‌ی برنامه‌نویسی، هنر و اجتماع.
 long_description: >
-  می‌نویسم؛ بیشترش درباره‌ی تجربیاتم توی حوزه‌ی فرونت اند و برنامه سازی توسط جاوااسکریپته. گاه گداری هم از سنیما، تیاتر، ادبیات و کلا هر چیزی که به هنر و اجتماع مربوط باشه و نباشه.
+  آرش شمس هستم مدیر سرور و بانک های اطلاعاتی در حال حاضر به صورت جدی روی scaling و database فعالبت میکنم. 
+
 
 copyright: "Commons Attribution 4.0 International"
 
@@ -25,14 +26,14 @@ defaults:
       type: "posts"
     values:
       layout: post
-      author: "سید ناصر حسنی"
+      author: "آرش شمس"
   -
     scope:
       path: "" # an empty string here means all files in the project
       type: "drafts" # previously `post` in Jekyll 2.2.
     values:
       layout: post
-      author: "سید ناصر حسنی"
+      author: "آرش شمس"
 
 
 # Where things are

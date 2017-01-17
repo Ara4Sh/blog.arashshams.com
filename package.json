@@ -1,5 +1,5 @@
 {
-  "name": "naser.xyz",
+  "name": "blog.arashshams.com",
   "version": "1.5.3",
   "description": "My Personal Website",
   "main": "index.js",
@@ -7,7 +7,7 @@
   "homepage": "http://naser.xyz",
   "repository": {
     "type": "git",
-    "url": "git@github.com:snhasani/naser.xyz.git"
+    "url": "git@github.com:Ara4Sh/blog.arashshams.com.git"
   },
   "scripts": {
     "deploy": "gulp deploy",
@@ -61,8 +61,7 @@
   "keywords": [
     "front-end",
     "frontend",
-    "blog",
-    "snhasani"
+    "blog"
   ],
   "license": "Commons Attribution 4.0 International",
   "private": true
