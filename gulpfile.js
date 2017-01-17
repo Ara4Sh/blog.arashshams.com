@@ -81,9 +81,8 @@ gulp.task( 'js-uglify', function() {
 
 gulp.task('jekyll', function () {
   return gulp.src('_config.yml')
-    // .pipe($.if(argv.development, $.shell([ 'jekyll build --drafts --config <%= file.path %>' ])))
-    // .pipe($.if(argv.production, $.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ])))
-    .pipe($.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ]))
+    .pipe($.if(argv.development, $.shell([ 'jekyll build --drafts --config <%= file.path %>' ])))
+    .pipe($.if(argv.production, $.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ])))
     .pipe(reload({stream: true}));
 });
 
@@ -131,33 +130,47 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'public']));
 
-gulp.task('serve', ['webpack', 'styles', 'jekyll'], function () {
+gulp.task('serve', function() {
+  runSequence('clean', ['webpack', 'styles', 'jekyll'], function () {
+    browserSync.init({
+      notify: false,
+      ghostMode: false,
+      open: false,
+      port: 8080,
+      server: {
+        baseDir: ['.tmp', 'public', 'src'],
+        routes: {
+          '/bower_components': 'bower_components'
+        }
+      }
+    });
+
+    gulp.watch([
+      'src/**/*.html',
+       path.src + 'scripts/**/*.js',
+       path.src + 'fonts/**/*',
+       path.src + 'images/**/*'
+    ]).on('change', reload);
+
+    gulp.watch( path.src + 'styles/**/*.scss', ['styles']);
+    gulp.watch( path.src + 'fonts/**/*', ['fonts']);
+    gulp.watch( path.src + 'scripts/**/*.js', ['webpack']);
+    gulp.watch('bower.json', ['wiredep', 'fonts']);
+    gulp.watch('src/**/*.{md,markdown,html}', ['jekyll']);
+  })
+});
+
+gulp.task('serve:public', function() {
   browserSync.init({
     notify: false,
     ghostMode: false,
     open: false,
     port: 8080,
     server: {
-      baseDir: ['.tmp', 'public', 'src'],
-      routes: {
-        '/bower_components': 'bower_components'
-      }
+      baseDir: ['public']
     }
   });
-
-  gulp.watch([
-    'src/**/*.html',
-     path.src + 'scripts/**/*.js',
-     path.src + 'fonts/**/*',
-     path.src + 'images/**/*'
-  ]).on('change', reload);
-
-  gulp.watch( path.src + 'styles/**/*.scss', ['styles']);
-  gulp.watch( path.src + 'fonts/**/*', ['fonts']);
-  gulp.watch( path.src + 'scripts/**/*.js', ['webpack']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
-  gulp.watch('src/**/*.{md,markdown,html}', ['jekyll']);
-});
+})
 
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
