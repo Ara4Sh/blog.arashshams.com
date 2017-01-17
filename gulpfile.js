@@ -81,7 +81,7 @@ gulp.task( 'js-uglify', function() {
 
 gulp.task('jekyll', function () {
   return gulp.src('_config.yml')
-    .pipe($.if(argv.development, $.shell([ 'jekyll build --drafts --config <%= file.path %>' ])))
+    .pipe($.if(argv.development, $.shell([ 'jekyll build --drafts --incremental --config <%= file.path %>' ])))
     .pipe($.if(argv.production, $.shell([ 'JEKYLL_ENV=production jekyll build --config <%= file.path %> --incremental --quiet' ])))
     .pipe(reload({stream: true}));
 });
@@ -133,10 +133,6 @@ gulp.task('clean', require('del').bind(null, ['.tmp', 'public']));
 gulp.task('serve', function() {
   runSequence('clean', ['webpack', 'styles', 'jekyll'], function () {
     browserSync.init({
-      notify: false,
-      ghostMode: false,
-      open: false,
-      port: 8080,
       server: {
         baseDir: ['.tmp', 'public', 'src'],
         routes: {
@@ -162,10 +158,6 @@ gulp.task('serve', function() {
 
 gulp.task('serve:public', function() {
   browserSync.init({
-    notify: false,
-    ghostMode: false,
-    open: false,
-    port: 8080,
     server: {
       baseDir: ['public']
     }
